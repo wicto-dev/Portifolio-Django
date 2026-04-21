@@ -1,0 +1,33 @@
+{% extends "core/base.html" %}
+
+{% block title %}Contatos - Meu Portfólio{% endblock %}
+
+{% block header_title %}Entre em Contato{% endblock %}
+
+{% block extra_css %}
+.card-contato {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}{% endblock %}
+
+{% block content %}
+<div class="card-contato">
+  {% if pessoal %}
+    <h2>Vamos conversar?</h2>
+    <p>Estou sempre aberto a novas conexões e oportunidades focadas em Engenharia de Software.</p>
+    
+
+    <div class="links-contato">
+      <p><strong>Email:</strong> <a href="mailto:{{ pessoal.email }}">{{ pessoal.email }}</a></p>
+      <p><strong>LinkedIn:</strong> <a href="{{ pessoal.linked }}" target="_blank">Meu Perfil</a></p>
+      <p><strong>GitHub:</strong> <a href="{{ pessoal.git }}" target="_blank">Meus Repositórios</a></p>
+    </div>
+
+  {% else %}
+    <p>Dados de contato não disponíveis. Preencha seus dados no painel Admin.</p>
+  {% endif %}
+</div>
+{% endblock %}
